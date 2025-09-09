@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fbc2eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #e91e63;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    <input type="text" id="newUser" placeholder="Create Username" required />
+    <input type="password" id="newPass" placeholder="Create Password" required />
+    <button onclick="register()">Register</button>
+    <a href="index.html">Already have an account? Login</a>
+  </div>
+
+  <script>
+    function register() {
+      const user = document.getElementById("newUser").value;
+      const pass = document.getElementById("newPass").value;
+
+      if (user && pass) {
+        localStorage.setItem("user", user);
+        localStorage.setItem("pass", pass);
+        alert("Registration successful! Please login.");
+        window.location.href = "index.html";
+      } else {
+        alert("Please enter username and password.");
+      }
+    }
+  </script>
+</body>
+</html>
