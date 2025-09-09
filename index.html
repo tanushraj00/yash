@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #6dd5fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #3498db;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <input type="text" id="loginUser" placeholder="Username" required />
+    <input type="password" id="loginPass" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+    <a href="register.html">Don't have an account? Register</a>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("loginUser").value;
+      const password = document.getElementById("loginPass").value;
+      const storedUser = localStorage.getItem("user");
+      const storedPass = localStorage.getItem("pass");
+
+      if (username === storedUser && password === storedPass) {
+        window.location.href = "welcome.html";
+      } else {
+        alert("Invalid login credentials!");
+      }
+    }
+  </script>
+</body>
+</html>
